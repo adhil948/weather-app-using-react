@@ -24,6 +24,7 @@ input {
   font-size: 16px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
 /* Group both buttons in a nice layout */
@@ -84,4 +85,28 @@ button {
 .loading {
   margin-top: 20px;
   font-weight: bold;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.history-list li {
+  background: #b3e5fc;
+  color: #01579b;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 15px;
+}
+
+.history-list li:hover {
+  background: #81d4fa;
 }
