@@ -47,7 +47,11 @@ function App() {
 
       const data = await response.json();
       setWeather(data);
-      setHistory((prev) => (prev.includes(cityToSearch) ? prev : [...prev, cityToSearch]));
+      setHistory(prev => {
+        const newHistory = [city, ...prev.filter(item => item.toLowerCase() !== city.toLowerCase())];
+        return newHistory.slice(0, 5); // Keep only latest 5 unique items
+      });
+      
     } catch (error) {
       alert("An error occurred while fetching data");
     } finally {
@@ -93,7 +97,7 @@ function App() {
         }}
       />
       <div className="button-group">
-        <button onClick={handleSearch}>Search</button>
+        <button onClick={() => handleSearch()}>Search</button>
         <button onClick={handleLocation}>My location 📍</button>
       </div>
       <ul className="history-list">
